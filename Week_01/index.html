@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>I did not dream</title>
+    </head>
+    <body>
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="sand.mp4" type="video/mp4">
+        </video>
+        
+        <video autoplay muted loop playsinline id="water-video">
+            <source src="waves.mp4" type="video/mp4">
+        </video>
+        
+        <div class="content" id="text-content">
+            <p>I confess. I have grown tired of long<br>
+            dreams that take me back to the point where they begin and I end,<br>
+            without us ever meeting in the morning.
+            </p>
+            <p>- Mahmoud Darwish, Palestinian poet</p>
+        </div>
+
+        <script>
+            const textContent = document.getElementById('text-content');
+            const waterVideo = document.getElementById('water-video');
+
+            textContent.addEventListener('mouseenter', () => {
+                waterVideo.style.opacity = '1';
+            });
+
+            textContent.addEventListener('mouseleave', () => {
+                waterVideo.style.opacity = '0.5';
+            });
+        </script>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                font-family: 'Times New Roman', Times, serif, serif;
+                position: relative;
+                overflow: hidden;
+            }
+
+            #bg-video {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                transform: translate(-50%, -50%);
+                z-index: -2;
+                object-fit: cover;
+            }
+
+            #water-video {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                object-fit: cover;
+                opacity: 0.5;
+                transition: opacity 1.5s ease;
+            }
+
+            .content {
+                position: relative;
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            h1 {
+                color: white;
+                font-size: 3rem;
+                text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.7);
+                margin-bottom: 2rem;
+            }
+
+            p {
+                color: rgba(255, 255, 255, 0.95);
+                font-size: 1.3rem;
+                line-height: 1.8;
+                max-width: 800px;
+                width: 100%;
+                text-align: center;
+                text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            p:last-child {
+                margin-top: 1.5rem;
+                font-style: italic;
+            }
+        </style>
+    </body>
+</html>
